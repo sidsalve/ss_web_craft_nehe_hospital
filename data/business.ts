@@ -24,8 +24,8 @@ export const businessContent = {
         about: 'Kalakruti Flex and Radium specializes in creative flex board designs, radium artwork, wedding invitations, number plates, and custom signage. We combine artistic vision with quality materials to deliver standout results for every client.',
         contact: {
             email: 'kalakrutiflexradium@gmail.com',
-            phone: '+91-9876543210',
-            address: 'Shop No. 5, Main Road, Near Bus Stand, Pune, Maharashtra 411001',
+            phone: '+91-7757968044',
+            address: 'Nita Complex, Shop 4, Nagar - Manmad Road, Near Bhagyashree Hotel, Rahuri, Maharashtra 413705',
             location: 'https://maps.google.com/?q=18.5204,73.8567',
         },
         navbar: {
@@ -103,8 +103,8 @@ export const businessContent = {
         about: 'कलाकृती फ़्लेक्स आणि रेडियम हे फ़्लेक्स बोर्ड डिझाईन, रेडियम आर्टवर्क, विवाह निमंत्रण, क्रमांक प्लेट आणि कस्टम साइनबोर्डमध्ये तज्ञ आहेत. आम्ही कलात्मक दृष्टिकोन आणि दर्जेदार साहित्य वापरून प्रत्येक ग्राहकासाठी उत्कृष्ट परिणाम देतो.',
         contact: {
             email: 'kalakrutiflexradium@gmail.com',
-            phone: '+91-9876543210',
-            address: 'दुकान क्र. ५, मुख्य रस्ता, बस स्थानकाजवळ, पुणे, महाराष्ट्र ४११००१',
+            phone: '+91-7757968044',
+            address: 'नीता कॉम्प्लेक्स, शॉप 4, नगर - मनमाड रोड, भाग्यश्री हॉटेल जवळ, राहुरी, महाराष्ट्र 413705',
             location: 'https://maps.google.com/?q=18.5204,73.8567',
         },
         navbar: {

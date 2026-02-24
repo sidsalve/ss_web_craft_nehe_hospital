@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kalakruti-flex.vercel.app//sitemap.xml

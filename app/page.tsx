@@ -1,41 +1,62 @@
 "use client";
 
-import About from "@/components/About";
-import Contact from "@/components/Contact";
-import Hero from "@/components/Hero";
+import { useState } from "react";
+
+import { getContent } from "@/lib/getContent";
+
 import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import Features from "@/components/Features";
+import AboutHospital from "@/components/AboutHospital";
 import Services from "@/components/Services";
-import Showcase from "@/components/Showcase";
-import Image from "next/image";
-
-
-import React, { useState, useEffect } from "react";
-import { animateOnScroll } from "./scroll-animate";
-import { businessContent } from "@/data/business";
+import AboutDoctors from "@/components/AboutDoctors";
+import Testimonials from "@/components/Testimonials";
+import FAQ from "@/components/FAQ";
+import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import WhatsAppFloat from "@/components/WhatsAppFloat";
+import ScrollToTop from "@/components/ScrollToTop";
 
 export default function Home() {
 
-  const [lang, setLang] = useState<'en' | 'mr'>('en');
+  const [lang, setLang] = useState<"en" | "mr">("en");
 
-  useEffect(() => {
-    animateOnScroll();
-    // Clean up listeners on unmount
-    return () => {
-      window.removeEventListener('scroll', animateOnScroll);
-      window.removeEventListener('resize', animateOnScroll);
-    };
-  }, []);
+  const content = getContent(lang);
 
   return (
     <>
-      <Navbar lang={lang} setLang={setLang} labels={businessContent[lang].navbar} theme={businessContent[lang].theme} />
-      <Hero lang={lang} theme={businessContent[lang].theme} />
-      <Services lang={lang} theme={businessContent[lang].theme} />
-      <Showcase lang={lang} />
-      <About lang={lang} theme={businessContent[lang].theme} />
-      <Contact lang={lang} theme={businessContent[lang].theme} />
-      <Footer lang={lang} theme={businessContent[lang].theme} date={businessContent[lang].date} businessName={businessContent[lang].name} />
+
+      <Navbar
+        content={content}
+        lang={lang}
+        setLang={setLang}
+      />
+
+      <Hero data={content.hero} />
+
+      <Features data={content.features} />
+
+      <AboutHospital data={content.aboutHospital} />
+
+      <Services data={content.services} heading={content.servicesHeading} />
+
+      <AboutDoctors
+        aboutDoctors={content.aboutDoctors}
+        doctors={content.doctors}
+      />
+
+      <Testimonials data={content.testimonials} heading={content.testimonialsHeading} />
+
+      <FAQ data={content.faq} heading={content.headingFaq} />
+
+      <Contact data={content.contact} />
+
+      <Footer data={content.footer} lang={lang} />
+
+      {/* <WhatsAppFloat /> */}
+      <ScrollToTop />
+
     </>
   );
+
 }

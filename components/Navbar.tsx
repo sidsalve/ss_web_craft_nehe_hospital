@@ -1,116 +1,111 @@
-
-
-
-
 "use client";
-import React, { useState } from 'react';
 
-interface NavbarProps {
-    lang: 'en' | 'mr';
-    setLang: (lang: 'en' | 'mr') => void;
-    labels: {
-        home: string;
-        services: string;
-        showcase?: string;
-        about: string;
-        contact: string;
-        business: string;
-        lang: string;
-    };
-    theme: {
-        primary: string;
-        secondary: string;
-        accent: string;
-        background: string;
-        heading: string;
-        text: string;
-    };
-}
+import { useState } from "react";
+import Image from "next/image";
 
+export default function Navbar({
+    content,
+    lang,
+    setLang,
+}: any) {
 
-const scrollToSection = (id: string) => {
-    const section = document.getElementById(id);
-    if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
-    }
-};
-
-const Navbar: React.FC<NavbarProps> = ({ lang, setLang, labels, theme }) => {
-    const [sidebarOpen, setSidebarOpen] = useState(false);
-
-    const handleSidebarNav = (id: string) => {
-        scrollToSection(id);
-        setSidebarOpen(false);
-    };
+    const [menuOpen, setMenuOpen] = useState(false);
 
     return (
-        <>
-            <nav style={{ background: theme.background }} className="w-full shadow-md fixed top-0 left-0 z-50">
-                <div className="max-w-7xl mx-auto flex items-center justify-between py-4 px-6">
-                    <div className="text-2xl font-bold" style={{ color: theme.primary }}>{labels.business}</div>
-                    <ul className="hidden md:flex space-x-8 font-medium">
-                        <li><button type="button" className="hover:underline bg-transparent border-none" style={{ color: theme.text }} onClick={() => scrollToSection('hero')}>{labels.home}</button></li>
-                        <li><button type="button" className="hover:underline bg-transparent border-none" style={{ color: theme.text }} onClick={() => scrollToSection('services')}>{labels.services}</button></li>
-                        <li><button type="button" className="hover:underline bg-transparent border-none" style={{ color: theme.text }} onClick={() => scrollToSection('showcase')}>{labels.showcase || 'Showcase'}</button></li>
-                        <li><button type="button" className="hover:underline bg-transparent border-none" style={{ color: theme.text }} onClick={() => scrollToSection('about')}>{labels.about}</button></li>
-                        <li><button type="button" className="hover:underline bg-transparent border-none" style={{ color: theme.text }} onClick={() => scrollToSection('contact')}>{labels.contact}</button></li>
-                    </ul>
-                    <div className="flex items-center space-x-4">
+        <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
+
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                <div className="flex items-center justify-between h-16">
+
+                    {/* Logo */}
+                    <div className="flex items-center gap-3">
+                        <Image
+                            src={content.hospital.logo}
+                            width={40}
+                            height={40}
+                            alt="logo"
+                            className="rounded-md"
+                        />
+                        <span className="font-bold text-lg sm:text-xl text-slate-900">
+                            {content.hospital.name}
+                        </span>
+                    </div>
+
+                    {/* Desktop Nav */}
+                    <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-700">
+                        <a href="#services" className="hover:text-blue-600 transition">
+                            {content.navbar.services}
+                        </a>
+                        <a href="#doctors" className="hover:text-blue-600 transition">
+                            {content.navbar.doctors}
+                        </a>
+                        <a href="#contact" className="hover:text-blue-600 transition">
+                            {content.navbar.contact}
+                        </a>
+
                         <button
-                            style={{ background: theme.accent, color: theme.primary }}
-                            className="font-semibold py-1 px-4 rounded transition"
-                            onClick={() => setLang(lang === 'en' ? 'mr' : 'en')}
-                            aria-label="Toggle language"
+                            onClick={() => setLang(lang === "en" ? "mr" : "en")}
+                            className="ml-4 px-4 py-1.5 rounded-full border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition"
                         >
-                            {labels.lang}
+                            {content.navbar.lang}
                         </button>
-                        <button className="md:hidden" style={{ color: theme.primary }} tabIndex={0} aria-label="Open menu" onClick={() => setSidebarOpen(true)}>
-                            <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-            </nav>
-            {/* Mobile Sidebar */}
-            <div className={`fixed inset-0 z-50 flex ${sidebarOpen ? '' : 'pointer-events-none'}`} style={{ pointerEvents: sidebarOpen ? 'auto' : 'none' }}>
-                {/* Overlay */}
-                <div
-                    className={`bg-black w-full h-full absolute top-0 left-0 transition-opacity duration-300 ${sidebarOpen ? 'opacity-50' : 'opacity-0'}`}
-                    onClick={() => setSidebarOpen(false)}
-                />
-                {/* Sidebar */}
-                <div
-                    className={`bg-white w-64 h-full p-6 flex flex-col pointer-events-auto relative transition-transform duration-300 ${sidebarOpen ? 'translate-x-0' : '-translate-x-64'}`}
-                    style={{ background: theme.background }}
-                >
-                    <div className="flex justify-between items-center mb-8">
-                        <span className="text-xl font-bold" style={{ color: theme.primary }}>{labels.business}</span>
-                        <button onClick={() => setSidebarOpen(false)} aria-label="Close menu" style={{ color: theme.primary }}>
-                            <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                            </svg>
-                        </button>
-                    </div>
-                    <ul className="flex flex-col space-y-6 font-medium">
-                        <li><button type="button" className="hover:underline bg-transparent border-none text-left" style={{ color: theme.text }} onClick={() => handleSidebarNav('hero')}>{labels.home}</button></li>
-                        <li><button type="button" className="hover:underline bg-transparent border-none text-left" style={{ color: theme.text }} onClick={() => handleSidebarNav('services')}>{labels.services}</button></li>
-                        <li><button type="button" className="hover:underline bg-transparent border-none text-left" style={{ color: theme.text }} onClick={() => handleSidebarNav('showcase')}>{labels.showcase || 'Showcase'}</button></li>
-                        <li><button type="button" className="hover:underline bg-transparent border-none text-left" style={{ color: theme.text }} onClick={() => handleSidebarNav('about')}>{labels.about}</button></li>
-                        <li><button type="button" className="hover:underline bg-transparent border-none text-left" style={{ color: theme.text }} onClick={() => handleSidebarNav('contact')}>{labels.contact}</button></li>
-                    </ul>
+                    </nav>
+
+                    {/* Mobile Button */}
                     <button
-                        style={{ background: theme.accent, color: theme.primary }}
-                        className="font-semibold py-2 px-4 rounded mt-8 transition"
-                        onClick={() => setLang(lang === 'en' ? 'mr' : 'en')}
-                        aria-label="Toggle language"
+                        onClick={() => setMenuOpen(!menuOpen)}
+                        className="md:hidden flex flex-col gap-1"
                     >
-                        {labels.lang}
+                        <span className={`h-0.5 w-6 bg-slate-800 transition ${menuOpen ? "rotate-45 translate-y-1.5" : ""}`} />
+                        <span className={`h-0.5 w-6 bg-slate-800 transition ${menuOpen ? "opacity-0" : ""}`} />
+                        <span className={`h-0.5 w-6 bg-slate-800 transition ${menuOpen ? "-rotate-45 -translate-y-1.5" : ""}`} />
                     </button>
+
                 </div>
             </div>
-        </>
-    );
-};
 
-export default Navbar;
+            {/* Mobile Menu */}
+            <div className={`md:hidden overflow-hidden transition-all duration-300 ${menuOpen ? "max-h-96" : "max-h-0"}`}>
+                <div className="px-4 pb-6 pt-2 space-y-4 bg-white border-t border-slate-100">
+
+                    <a
+                        href="#services"
+                        className="block text-slate-700 hover:text-blue-600 transition"
+                        onClick={() => setMenuOpen(false)}
+                    >
+                        {content.navbar.services}
+                    </a>
+
+                    <a
+                        href="#doctors"
+                        className="block text-slate-700 hover:text-blue-600 transition"
+                        onClick={() => setMenuOpen(false)}
+                    >
+                        {content.navbar.doctors}
+                    </a>
+
+                    <a
+                        href="#contact"
+                        className="block text-slate-700 hover:text-blue-600 transition"
+                        onClick={() => setMenuOpen(false)}
+                    >
+                        {content.navbar.contact}
+                    </a>
+
+                    <button
+                        onClick={() => {
+                            setLang(lang === "en" ? "mr" : "en");
+                            setMenuOpen(false);
+                        }}
+                        className="w-full text-left px-4 py-2 rounded-full border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition"
+                    >
+                        {content.navbar.lang}
+                    </button>
+
+                </div>
+            </div>
+
+        </header>
+    );
+}

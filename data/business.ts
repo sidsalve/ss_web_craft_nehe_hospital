@@ -218,6 +218,14 @@ export const businessContent = {
             },
         ],
 
+        headingGallery: "Gallery",
+        gallery: [
+            { src: "/nicu.jpeg", alt: "NICU Room" },
+            { src: "/emergancy-room.jpeg", alt: "Emergency Room" },
+            { src: "/ward.jpeg", alt: "Pediatric Ward" },
+            { src: "/reception.jpeg", alt: "Reception Area" },
+        ],
+
         contact: {
             heading: "Contact Nehe Children’s Hospital",
             subheading: "24/7 Emergency & Critical Pediatric Care",
@@ -420,7 +428,7 @@ export const businessContent = {
             },
             {
                 name: "ICICI लोम्बार्ड",
-                logo: "/icici-lombard.png",
+                logo: "/icici-lombard.jpeg",
                 cashless: true,
             },
             {
@@ -442,6 +450,18 @@ export const businessContent = {
                 answer:
                     "होय, 24/7 उपलब्ध आहे.",
             },
+        ],
+        headingGallery: "गॅलरी",
+
+        gallery: [
+            { src: "/nicu.jpeg", alt: "NICU Room" },
+            { src: "/emergancy-room.jpeg", alt: "Emergency Room" },
+            { src: "/ward.jpeg", alt: "Pediatric Ward" },
+            { src: "/reception.jpeg", alt: "Reception Area" },
+            { src: "/nicu.jpeg", alt: "NICU Room" },
+            { src: "/emergancy-room.jpeg", alt: "Emergency Room" },
+            { src: "/ward.jpeg", alt: "Pediatric Ward" },
+            { src: "/reception.jpeg", alt: "Reception Area" },
         ],
 
         contact: {

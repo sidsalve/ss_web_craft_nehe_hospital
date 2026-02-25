@@ -17,6 +17,7 @@ import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import ScrollToTop from "@/components/ScrollToTop";
 import Insurance from "@/components/Insurnace";
+import Gallery from "@/components/Gallery";
 
 export default function Home() {
 
@@ -52,6 +53,7 @@ export default function Home() {
 
       <FAQ data={content.faq} heading={content.headingFaq} />
 
+      <Gallery data={content.gallery} heading={content.headingGallery} />
       <Contact data={content.contact} />
 
       <Footer data={content.footer} lang={lang} />

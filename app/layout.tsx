@@ -13,22 +13,25 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+
 export const metadata: Metadata = {
-  title: "Kalakruti Flex And Radium - Flex Printing and Radium Art Services in Rahuri",
+  title: "Nehe Children’s Hospital and Critical Care Center | Pediatric Hospital in Rahuri",
   description:
-    "Kalakruti Flex provides professional flex designing and printing, banner printing, and signage services in Rahuri.",
+    "Nehe Children’s Hospital provides expert pediatric care, ICU, emergency services, and advanced treatment for children in Rahuri, Ahmednagar, Maharashtra.",
   keywords: [
-    "flex printing Rahuri",
-    "banner printing Rahuri",
-    "Kalakruti Flex",
-    "Kalakruti Radium",
-    "flex printing near me",
+    "children hospital Rahuri",
+    "pediatric hospital Rahuri",
+    "child specialist",
+    "pediatric ICU",
+    "neonatal care",
+    "emergency care for children",
+    "vaccination Rahuri",
   ],
   openGraph: {
-    title: "Kalakruti Flex And Radium - Flex Printing and Radium Art Services in Rahuri",
+    title: "Nehe Children’s Hospital and Critical Care Center | Pediatric Hospital in Rahuri",
     description:
-      "Professional flex printing and radium art services in Rahuri.",
-    url: "https://kalakruti-flex.vercel.app",
+      "Trusted pediatric hospital in Rahuri with 24/7 emergency care, pediatric ICU, and experienced child specialists.",
+    url: "https://nehe-hospital.example.com", // Replace with your actual hospital domain
     type: "website",
   },
 };

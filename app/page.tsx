@@ -16,6 +16,7 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import ScrollToTop from "@/components/ScrollToTop";
+import Insurance from "@/components/Insurnace";
 
 export default function Home() {
 
@@ -46,6 +47,8 @@ export default function Home() {
       />
 
       <Testimonials data={content.testimonials} heading={content.testimonialsHeading} />
+
+      <Insurance data={content.insurance} heading={content.insuranceHeading} />
 
       <FAQ data={content.faq} heading={content.headingFaq} />
 

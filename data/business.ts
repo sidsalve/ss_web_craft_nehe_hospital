@@ -179,7 +179,13 @@ export const businessContent = {
                 image: "/room.jpg",
             },
         ],
-
+        insuranceHeading: "We Accept These Insurance Providers",
+        insurance: [
+            { name: "HDFC ERGO", logo: "/hdfc-ergo.png", cashless: true },
+            { name: "ICICI Lombard", logo: "/icici-lombard.jpeg", cashless: true },
+            { name: "Bajaj Allianz", logo: "/bajaj-allianz.png", cashless: false },
+            { name: "Star Health", logo: "/star-health.png", cashless: true },
+        ],
         testimonialsHeading: "What Our Patients Say",
         testimonials: [
             {
@@ -404,7 +410,30 @@ export const businessContent = {
                     "खूप चांगली सेवा आणि काळजी.",
             },
         ],
+        insuranceHeading: "आम्ही हे इन्शुरन्स स्वीकारतो",
 
+        insurance: [
+            {
+                name: "एचडीएफसी इर्गो",
+                logo: "/hdfc-ergo.png",
+                cashless: true,
+            },
+            {
+                name: "ICICI लोम्बार्ड",
+                logo: "/icici-lombard.png",
+                cashless: true,
+            },
+            {
+                name: "बजाज अॅलियान्झ",
+                logo: "/bajaj-allianz.png",
+                cashless: false,
+            },
+            {
+                name: "स्टार हेल्थ",
+                logo: "/star-health.png",
+                cashless: true,
+            },
+        ],
         headingFaq: "सामान्य प्रश्न",
         faq: [
             {
